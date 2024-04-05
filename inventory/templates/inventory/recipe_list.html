@@ -1,0 +1,39 @@
+
+{% extends 'inventory/base.html' %}
+ 
+
+{% block content %}
+
+
+    <h1>Recipe List</h1>
+    <a href="{% url 'inventory:add-recipe' menu.menu_item_id %}">add Recipe</a>
+    
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Menu Item</th>
+                    
+                    
+                    <th>Actions</th> <!-- Add column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu in recipe %}
+                <tr>
+                    <td>{{ menu.menu_item.name }}</td>
+                  
+                     
+                        
+                        
+                        
+                    </td> 
+                </tr>
+               
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

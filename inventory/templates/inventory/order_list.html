@@ -1,0 +1,37 @@
+{% extends 'inventory/base.html' %}
+
+
+{% block content %}
+ <a href="{% url 'inventory:add-order'%}"> Add Order</a>
+    <h1>Order List</h1>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Table  Name</th>
+                    <th>Created_at</th>
+                    <th>Quantity</th>
+                     <!-- Add column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu in order %}
+                <tr>
+                    <td>{{ menu.food_item }}</td>
+                    <td>{{ menu.table_name }}</td>
+                    <td>{{ menu.created_at }}</td>
+                    <td>{{ menu.quantity }}</td>
+                  
+                  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+                       <!-- Edit icon -->
+     {% comment %} <a href="{% url 'resturant:edit_menu' menu.id %}"><i class="fas fa-edit"></i></a>
+                        <!-- Delete icon -->
+     <a href="{% url 'resturant:delete_menu' menu.id %}"><i class="fas fa-trash"></i></a> {% endcomment %}
+
+    {% endblock %}
